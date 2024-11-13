@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Order History",
+    "description": "View and manage all order history.",
+    "bgColor": "bg-info"
+  },
+  {
+    "title": "Add Restaurant",
+    "description": "Add a new restaurant to the system.",
+    "bgColor": "bg-success"
+  },
+  {
+    "title": "Remove Restaurant",
+    "description": "Remove an existing restaurant.",
+    "bgColor": "bg-danger"
+  },
+  {
+    "title": "Manage Refunds",
+    "description": "Manage refunds for customers.",
+    "bgColor": "bg-warning"
+  },
+  {
+    "title": "View Financial Reports",
+    "description": "Access and analyze financial reports.",
+    "bgColor": "bg-primary"
+  },
+  {
+    "title": "Track Deliveries",
+    "description": "Monitor the status of all deliveries.",
+    "bgColor": "bg-secondary"
+  },
+  {
+    "title": "Edit Restaurant Settings",
+    "description": "Modify settings for restaurants in the system.",
+    "bgColor": "bg-success"
+  },
+  {
+    "title": "Customer Support",
+    "description": "Handle customer inquiries and complaints.",
+    "bgColor": "bg-info"
+  },
+  {
+    "title": "Update Menu",
+    "description": "Edit and update the menu items for restaurants.",
+    "bgColor": "bg-success"
+  }
+]

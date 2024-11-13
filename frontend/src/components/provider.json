@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Order History",
+    "description": "View and manage all order history.",
+    "bgColor": "bg-info"
+  },
+  {
+    "title": "Upload new items",
+    "description": "Add New Recipes",
+    "bgColor": "bg-success"
+  },
+  {
+    "title": "Make Outlet Unavailable",
+    "description": "Show Restaurant as Closed",
+    "bgColor": "bg-danger"
+  },
+  {
+    "title": "Manage Refunds",
+    "description": "Manage refunds for customers.",
+    "bgColor": "bg-warning"
+  }
+]

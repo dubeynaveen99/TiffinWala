@@ -2,6 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
 // Register User
 exports.registerUser = async (req, res) => {
   const { name, email, password, userType } = req.body;
@@ -39,5 +40,23 @@ exports.loginUser = async (req, res) => {
     res.json({ token, userType: user.userType });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+
+// Controller function to get user profile
+exports.getUserProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id); // req.user.id comes from the token
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json({
+      name: user.name,
+      email: user.email,
+      userType: user.userType // Include userType for role-specific functionality
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
   }
 };

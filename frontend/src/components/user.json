@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Order History",
+    "description": "View and manage all order history.",
+    "bgColor": "bg-info"
+  },
+  {
+    "title": "Add Restaurant",
+    "description": "Add a new restaurant to the system.",
+    "bgColor": "bg-success"
+  },
+  {
+    "title": "Remove Restaurant",
+    "description": "Remove an existing restaurant.",
+    "bgColor": "bg-danger"
+  },
+  {
+    "title": "Manage Refunds",
+    "description": "Manage refunds for customers.",
+    "bgColor": "bg-warning"
+  }
+]

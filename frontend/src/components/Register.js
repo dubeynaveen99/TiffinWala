@@ -3,27 +3,61 @@ import { Link, useNavigate } from 'react-router-dom'; // useNavigate for program
 import './Register.css'; // Styles
 
 const Register = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '', userType: '' });
+  const [loading, setLoading] = useState(false); // State to handle loading spinner
+  const [error, setError] = useState(null); // State to capture any errors during registration
   const navigate = useNavigate(); // Hook to navigate after registration
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Simulating successful registration (you can integrate with API later)
-    alert('Registration Successful');
-    setFormData({ name: '', email: '', password: '' }); // Reset the form fields
-    
-    // Navigate to the login page after successful registration
-    navigate('/login');
+    setLoading(true); // Start loading when API call begins
+    setError(null); // Reset error state
+
+    // Define the API endpoint for registration
+    const apiUrl = `${process.env.REACT_APP_API_URL}/users/register`; // Replace with actual API URL
+
+    try {
+      // Send POST request to register API
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Check if the response is successful
+      if (response.ok) {
+        // Registration successful
+        const result = await response.json(); // Get response data
+        alert(result.message || 'Registration Successful');
+        setFormData({ name: '', email: '', password: '', userType: '' }); // Reset the form fields
+
+        // Navigate to login page after successful registration
+        navigate('/login');
+      } else {
+        // Handle registration failure (e.g., invalid input, server error)
+        const result = await response.json();
+        setError(result.message || 'Registration failed. Please try again.');
+      }
+    } catch (err) {
+      // Handle network or other errors
+      setError('An error occurred while trying to register. Please try again later.');
+      console.error('Registration error:', err);
+    } finally {
+      setLoading(false); // Stop loading after API call completes
+    }
   };
 
   return (
     <div className="container register-container">
       <h2>Register</h2>
+      {error && <div className="alert alert-danger">{error}</div>} {/* Show error if any */}
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
           <label htmlFor="name" className="col-sm-4 col-form-label">Name</label>
@@ -85,7 +119,9 @@ const Register = () => {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary w-100">Register</button>
+        <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+          {loading ? 'Registering...' : 'Register'}
+        </button>
       </form>
 
       <div className="mt-3">
