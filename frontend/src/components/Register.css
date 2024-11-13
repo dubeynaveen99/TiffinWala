@@ -1,0 +1,42 @@
+/* Full-page background image */
+body {
+    background: url('food-frame-with-asian-dish.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Centering the form and setting max-width */
+  .register-container {
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 10%;
+  }
+  
+  /* Form title styling */
+  .register-container h2 {
+    text-align: center;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  /* Submit button styling */
+  .register-container .btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    font-weight: bold;
+  }
+  
+  /* Field styling */
+  .form-label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .form-control, .form-select {
+    border-radius: 5px;
+  }
+  
