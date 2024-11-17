@@ -23,8 +23,8 @@ const Dashboard = () => {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
+            'Content-Type': 'application/json',
+          },
         });
         const data = await response.json();
         if (response.ok) {
@@ -47,6 +47,11 @@ const Dashboard = () => {
     navigate('/login');
   };
 
+  // Handle navigation based on card click
+  const handleCardClick = (route) => {
+    navigate(route); // Navigate to the specified route
+  };
+
   // Role-based rendering using JSON data
   const renderDashboard = () => {
     let services = [];
@@ -61,7 +66,12 @@ const Dashboard = () => {
     return (
       <>
         {services.map((service, index) => (
-          <div key={index} className="col-md-3 mb-4">
+          <div
+            key={index}
+            className="col-md-3 mb-4"
+            style={{ cursor: 'pointer' }} // Add pointer cursor to indicate clickable
+            onClick={() => handleCardClick(service.route)} // Navigate to the route defined in the JSON
+          >
             <div className={`card text-white ${service.bgColor}`} style={{ height: '200px' }}>
               <div className="card-body">
                 <h5 className="card-title">{service.title}</h5>

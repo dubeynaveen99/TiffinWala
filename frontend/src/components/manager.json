@@ -2,7 +2,13 @@
   {
     "title": "Order History",
     "description": "View and manage all order history.",
-    "bgColor": "bg-info"
+    "bgColor": "bg-info",
+    "route":"/order-history"
+  },
+  {
+    "title": "Outlets",
+    "description": "Manage Outlets",
+    "bgColor": "bg-primary"
   },
   {
     "title": "Add Restaurant",

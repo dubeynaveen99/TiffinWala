@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
+const orderRoutes=require('./routes/orderRoutes');
+
 
 dotenv.config();
 
@@ -20,6 +22,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
+
 
 // Start server
 const PORT = process.env.PORT || 5000;
